@@ -1,0 +1,43 @@
+name: calda_pizza_app
+description: Calda Challenge - Pizza Ordering App
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Supabase for backend
+  supabase_flutter: ^2.0.0
+
+  # UI
+  cupertino_icons: ^1.0.2
+
+  # State management & utilities
+  provider: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Add Poppins font
+  # Note: Uncomment when font files are added to fonts/ directory
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: fonts/Poppins-Light.ttf
+  #         weight: 300
+  #       - asset: fonts/Poppins-Regular.ttf
+  #         weight: 400
+  #       - asset: fonts/Poppins-Medium.ttf
+  #         weight: 500
+  #       - asset: fonts/Poppins-SemiBold.ttf
+  #         weight: 600
