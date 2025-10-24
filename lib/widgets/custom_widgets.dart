@@ -72,27 +72,45 @@ class PizzaCard extends StatelessWidget {
                 ),
               ),
 
-            // Pizza details
+            // Pizza details - Typography from Figma
             Container(
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Pizza name
+                  // Pizza name - Figma: Poppins 500, 16px
                   Text(
                     pizza.name ?? 'Unknown',
-                    style: AppTypography.labelMedium,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textDark,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  const SizedBox(height: 2),
+                  // Size label - Figma: "Small", Poppins 400, 14px
+                  const Text(
+                    'Small',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
                   const SizedBox(height: 4),
-                  // Pizza price
+                  // Pizza price - Figma: Poppins 400, 14px
                   Text(
                     pizza.formattedPrice,
-                    style: AppTypography.bodySmall.copyWith(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.w600,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textDark,
                     ),
                   ),
                 ],
@@ -166,23 +184,33 @@ class AddOnCard extends StatelessWidget {
             ),
             const SizedBox(width: 12),
 
-            // Add-on details
+            // Add-on details - Typography from Figma
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // Add-on name - Figma: Poppins 600, 12px
                   Text(
                     addOn.name,
-                    style: AppTypography.labelMedium,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.textDark,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 2),
+                  // Add-on price - Figma: Poppins 400, 12px
                   Text(
                     addOn.formattedPrice,
-                    style: AppTypography.bodySmall.copyWith(
-                      color: AppColors.primary,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textDark,
                     ),
                   ),
                 ],

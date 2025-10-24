@@ -57,28 +57,54 @@ class PizzasScreen extends StatelessWidget {
             );
           }
 
-          return GridView.builder(
-            padding: const EdgeInsets.all(AppSpacing.md),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 149 / 200,
-              crossAxisSpacing: AppSpacing.gridSpacing,
-              mainAxisSpacing: AppSpacing.gridSpacing,
-            ),
-            itemCount: pizzas.length,
-            itemBuilder: (context, index) {
-              final pizza = pizzas[index];
-              return PizzaCard(
-                pizza: pizza,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/pizza-details',
-                    arguments: pizza,
-                  );
-                },
-              );
-            },
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // "Popoular Pizzas" title from Figma (with typo preserved)
+              // Figma: Poppins 300, 14px
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Popoular Pizzas',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w300,
+                    color: AppColors.textDark,
+                  ),
+                ),
+              ),
+
+              // Pizza Grid
+              Expanded(
+                child: GridView.builder(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.md,
+                    vertical: 0,
+                  ),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 149 / 200,
+                    crossAxisSpacing: AppSpacing.gridSpacing,
+                    mainAxisSpacing: AppSpacing.gridSpacing,
+                  ),
+                  itemCount: pizzas.length,
+                  itemBuilder: (context, index) {
+                    final pizza = pizzas[index];
+                    return PizzaCard(
+                      pizza: pizza,
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/pizza-details',
+                          arguments: pizza,
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),

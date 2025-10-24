@@ -20,15 +20,25 @@ class OrderSuccessScreen extends StatelessWidget {
             children: [
               const OrderSuccessAnimation(size: 150),
               const SizedBox(height: AppSpacing.xl),
-              Text(
-                'Order Confirmed!',
-                style: AppTypography.h2,
+              // Title - Figma: "Your order is confirmed!", Poppins 600, 24px
+              const Text(
+                'Your order is confirmed!',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textDark,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: AppSpacing.sm),
-              Text(
-                'Your pizza will be ready soon',
-                style: AppTypography.bodyLarge.copyWith(
+              // Subtitle - Figma: "Now you can sit back and relax!", Poppins 300, 14px
+              const Text(
+                'Now you can sit back and relax!',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
                   color: AppColors.textSecondary,
                 ),
                 textAlign: TextAlign.center,

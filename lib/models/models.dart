@@ -68,13 +68,13 @@ class Pizza {
     this.description,
   });
 
-  /// Get formatted price (e.g., "$12.00")
+  /// Get formatted price (e.g., "12.00 €") - Figma format
   String get formattedPrice {
-    return '\$${(price / 100).toStringAsFixed(2)}';
+    return '${(price / 100).toStringAsFixed(2)} €';
   }
 
-  /// Get price as double in dollars
-  double get priceInDollars {
+  /// Get price as double in euros
+  double get priceInEuros {
     return price / 100.0;
   }
 
@@ -141,13 +141,13 @@ class AddOn {
     required this.imgUrl,
   });
 
-  /// Get formatted price (e.g., "$2.50")
+  /// Get formatted price (e.g., "2.50 €") - Figma format
   String get formattedPrice {
-    return '\$${(price / 100).toStringAsFixed(2)}';
+    return '${(price / 100).toStringAsFixed(2)} €';
   }
 
-  /// Get price as double in dollars
-  double get priceInDollars {
+  /// Get price as double in euros
+  double get priceInEuros {
     return price / 100.0;
   }
 
@@ -194,7 +194,7 @@ class AddOn {
 enum PizzaSize {
   small,
   medium,
-  large;
+  big; // Changed from "large" to match Figma design
 
   String get displayName {
     switch (this) {
@@ -202,8 +202,8 @@ enum PizzaSize {
         return 'Small';
       case PizzaSize.medium:
         return 'Medium';
-      case PizzaSize.large:
-        return 'Large';
+      case PizzaSize.big:
+        return 'Big'; // Changed from "Large" to match Figma
     }
   }
 
@@ -220,8 +220,10 @@ enum PizzaSize {
         return PizzaSize.small;
       case 'medium':
         return PizzaSize.medium;
-      case 'large':
-        return PizzaSize.large;
+      case 'big':
+        return PizzaSize.big;
+      case 'large': // Backward compatibility
+        return PizzaSize.big;
       default:
         return null;
     }
@@ -251,19 +253,19 @@ class Order {
     this.addOns,
   });
 
-  /// Get formatted order total (e.g., "$15.50")
+  /// Get formatted order total (e.g., "15.50 €") - Figma format
   String get formattedTotal {
-    return '\$${(orderTotal / 100).toStringAsFixed(2)}';
+    return '${(orderTotal / 100).toStringAsFixed(2)} €';
   }
 
-  /// Get total as double in dollars
-  double get totalInDollars {
+  /// Get total as double in euros
+  double get totalInEuros {
     return orderTotal / 100.0;
   }
 
-  /// Get formatted pizza price
+  /// Get formatted pizza price (e.g., "12.00 €") - Figma format
   String get formattedPizzaPrice {
-    return '\$${(pizzaPrice / 100).toStringAsFixed(2)}';
+    return '${(pizzaPrice / 100).toStringAsFixed(2)} €';
   }
 
   /// Create Order from JSON (from Supabase)
@@ -339,9 +341,9 @@ class OrderAddOn {
     required this.addOnPrice,
   });
 
-  /// Get formatted price (e.g., "$2.50")
+  /// Get formatted price (e.g., "2.50 €") - Figma format
   String get formattedPrice {
-    return '\$${(addOnPrice / 100).toStringAsFixed(2)}';
+    return '${(addOnPrice / 100).toStringAsFixed(2)} €';
   }
 
   /// Create OrderAddOn from JSON (from Supabase)
@@ -411,13 +413,13 @@ class CartItem {
     return total;
   }
 
-  /// Get formatted total price
+  /// Get formatted total price (e.g., "15.50 €") - Figma format
   String get formattedTotalPrice {
-    return '\$${(totalPrice / 100).toStringAsFixed(2)}';
+    return '${(totalPrice / 100).toStringAsFixed(2)} €';
   }
 
-  /// Get total price as double in dollars
-  double get totalInDollars {
+  /// Get total price as double in euros
+  double get totalInEuros {
     return totalPrice / 100.0;
   }
 

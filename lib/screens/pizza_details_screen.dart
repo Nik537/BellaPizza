@@ -130,39 +130,65 @@ class _PizzaDetailsScreenState extends State<PizzaDetailsScreen> {
                 ),
               ),
 
-            // Pizza Info
+            // Pizza Info - Typography from Figma
             Padding(
               padding: const EdgeInsets.all(AppSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Price - Figma: Poppins 300, 20px
+                  Text(
+                    pizza.formattedPrice,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      color: AppColors.textDark,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  // Pizza Name - Figma: Poppins 600, 18px
                   Text(
                     pizza.name ?? 'Unknown Pizza',
-                    style: AppTypography.h3,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.textDark,
+                    ),
                   ),
                   if (pizza.description != null) ...[
                     const SizedBox(height: AppSpacing.sm),
+                    // Description - Figma: Poppins 400, 16px
                     Text(
                       pizza.description!,
-                      style: AppTypography.bodyMedium,
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.textDark,
+                      ),
                     ),
                   ],
-                  const SizedBox(height: AppSpacing.sm),
-                  Text(
-                    pizza.formattedPrice,
-                    style: AppTypography.h5.copyWith(color: AppColors.primary),
-                  ),
                 ],
               ),
             ),
 
-            // Size Selector
+            // Size Selector - Figma: "Select size" lowercase, Poppins 400, 12px
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Size', style: AppTypography.h5),
+                  const Text(
+                    'Select size',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textDark,
+                    ),
+                  ),
                   const SizedBox(height: AppSpacing.sm),
                   SizeSelectorTabs(
                     selectedSize: _selectedSize,
@@ -174,13 +200,21 @@ class _PizzaDetailsScreenState extends State<PizzaDetailsScreen> {
 
             const SizedBox(height: AppSpacing.lg),
 
-            // Add-ons
+            // Add-ons - Figma: "Add-ons" lowercase, Poppins 400, 12px
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Add-ons', style: AppTypography.h5),
+                  const Text(
+                    'Add-ons',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.textDark,
+                    ),
+                  ),
                   const SizedBox(height: AppSpacing.sm),
                   if (_isLoadingAddOns)
                     const Center(child: CircularProgressIndicator())
@@ -211,10 +245,23 @@ class _PizzaDetailsScreenState extends State<PizzaDetailsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Total', style: AppTypography.h5),
+                  const Text(
+                    'Total',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textDark,
+                    ),
+                  ),
                   Text(
-                    '\$${(_calculateTotal(pizza) / 100).toStringAsFixed(2)}',
-                    style: AppTypography.h5.copyWith(color: AppColors.primary),
+                    '${(_calculateTotal(pizza) / 100).toStringAsFixed(2)} €',
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.primary,
+                    ),
                   ),
                 ],
               ),

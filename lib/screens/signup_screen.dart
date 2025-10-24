@@ -64,20 +64,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 32),
+
+              // Username Field - Figma: "What is your name?"
               CustomTextField(
-                label: 'Username',
-                hintText: 'Choose a username',
+                label: 'What is your name?',
+                hintText: 'Enter your name',
                 controller: _usernameController,
                 validator: (v) {
-                  if (v == null || v.isEmpty) return 'Username is required';
-                  if (v.length < 3) return 'Username must be at least 3 characters';
+                  if (v == null || v.isEmpty) return 'Name is required';
+                  if (v.length < 3) return 'Name must be at least 3 characters';
                   return null;
                 },
               ),
+
               const SizedBox(height: AppSpacing.md),
+
+              // Email Field - Figma: "What is your email?"
               CustomTextField(
-                label: 'Email',
-                hintText: 'Enter your email',
+                label: 'What is your email?',
+                hintText: 'enter@email.com',
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: (v) {
@@ -86,28 +91,63 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
+
               const SizedBox(height: AppSpacing.md),
-              CustomTextField(
-                label: 'Password',
-                hintText: 'Create a password',
-                controller: _passwordController,
-                obscureText: true,
-                validator: (v) {
-                  if (v == null || v.isEmpty) return 'Password is required';
-                  if (v.length < 6) return 'Password must be at least 6 characters';
-                  return null;
-                },
+
+              // Password Field - Figma: "Create a password"
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomTextField(
+                    label: 'Create a password',
+                    hintText: 'Enter Password',
+                    controller: _passwordController,
+                    obscureText: true,
+                    validator: (v) {
+                      if (v == null || v.isEmpty) return 'Password is required';
+                      if (v.length < 8) return 'Password must be at least 8 characters';
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 4),
+                  // Helper text from Figma (with typo preserved)
+                  const Padding(
+                    padding: EdgeInsets.only(left: 4),
+                    child: Text(
+                      'Use at least 8 charachters',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                  ),
+                ],
               ),
+
               const SizedBox(height: AppSpacing.xl),
+
+              // Create Account Button
               PrimaryButton(
-                text: 'Create Account',
+                text: 'Create account',
                 onPressed: _handleSignUp,
                 isLoading: _isLoading,
               ),
+
               const SizedBox(height: AppSpacing.md),
+
+              // Login link - Simplified per Figma
               TextButton(
                 onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
-                child: const Text('Already have an account? Login'),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
             ],
           ),
