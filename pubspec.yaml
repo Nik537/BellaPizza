@@ -28,6 +28,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  # Assets
+  assets:
+    - assets/images/
+
   # Add Poppins font
   # Note: Uncomment when font files are added to fonts/ directory
   # fonts:

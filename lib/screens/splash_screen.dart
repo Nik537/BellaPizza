@@ -8,47 +8,39 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white, // Exact from Figma
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              // Spacer to push content down
-              const Spacer(flex: 3),
+      body: Stack(
+        children: [
+          // Background image
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/splash_background.png',
+              fit: BoxFit.cover,
+            ),
+          ),
 
-              // Bella Pizza Logo
-              // Logo dimensions from Figma: 273x257
-              SizedBox(
-                width: 273,
-                height: 257,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Pizza icon as logo placeholder
-                      Icon(
-                        Icons.local_pizza,
-                        size: 120,
-                        color: AppColors.textDark, // rgba(33, 33, 33) from Figma
+          // Content
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  // Spacer to push content down
+                  const Spacer(flex: 3),
+
+                  // Bella Pizza Logo
+                  // Logo dimensions from Figma: 273x257
+                  SizedBox(
+                    width: 273,
+                    height: 257,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/bella_pizza_logo.png',
+                        fit: BoxFit.contain,
                       ),
-                      const SizedBox(height: 16),
-                      // Bella Pizza text
-                      Text(
-                        'Bella Pizza',
-                        style: TextStyle(
-                          fontFamily: AppTypography.primaryFont,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textDark,
-                          letterSpacing: -0.5,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
 
-              const Spacer(flex: 2),
+                  const Spacer(flex: 2),
 
               // Tagline - Exact from Figma
               // Position: (24, 761), Size: 337x38
@@ -139,10 +131,12 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20), // Bottom spacing
-            ],
+                  const SizedBox(height: 20), // Bottom spacing
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
