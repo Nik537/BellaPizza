@@ -250,7 +250,7 @@ class _SlideToOrderWidgetState extends State<SlideToOrderWidget>
                     style: TextStyle(
                       color: widget.textColor,
                       fontSize: 14.0,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w500, // Exact from Figma (Poppins Medium)
                       fontFamily: 'Poppins',
                     ),
                   ),

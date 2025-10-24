@@ -19,11 +19,11 @@ class AppColors {
   static const Color successLight = Color(0xFFF2FBEE); // rgba(242, 251, 238, 1.0)
   static const Color successMedium = Color(0xFFE1F7D7); // rgba(225, 247, 215, 1.0)
 
-  // Text Colors
-  static const Color textPrimary = Color(0xFF202948); // rgba(32, 41, 72, 1.0)
-  static const Color textSecondary = Color(0xFF535D67); // rgba(83, 93, 103, 1.0)
-  static const Color textDark = Color(0xFF212121); // rgba(33, 33, 33, 1.0)
-  static const Color textLight = Color(0xFFFFFFFF); // White
+  // Text Colors (EXACT from Figma)
+  static const Color textPrimary = Color(0xFF202948); // rgba(32, 41, 72) - Main text
+  static const Color textSecondary = Color(0xFF535D67); // rgba(83, 93, 103) - Secondary text
+  static const Color textDark = Color(0xFF212121); // rgba(33, 33, 33) - Dark text
+  static const Color textLight = Color(0xFFFFFFFF); // White text
 
   // Border/Divider Colors
   static const Color divider = Color(0xFFDADADA); // rgba(218, 218, 218, 1.0)
@@ -125,7 +125,7 @@ class AppTypography {
   static const TextStyle buttonText = TextStyle(
     fontFamily: primaryFont,
     fontSize: 14,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500, // Poppins Medium per Figma
     color: AppColors.textLight,
   );
 

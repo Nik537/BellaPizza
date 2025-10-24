@@ -25,6 +25,15 @@ class SplashScreen extends StatelessWidget {
                 'Calda Pizza',
                 style: AppTypography.h1.copyWith(color: AppColors.primary),
               ),
+              const SizedBox(height: AppSpacing.md),
+              Text(
+                'Get started with Bella Pizza.\nExperience a variety of choices and\nfast delivery to your doorstep.',
+                textAlign: TextAlign.center,
+                style: AppTypography.bodyMedium.copyWith(
+                  color: AppColors.textSecondary,
+                  height: 1.5,
+                ),
+              ),
               const SizedBox(height: AppSpacing.xxl * 2),
               PrimaryButton(
                 text: 'Login',
